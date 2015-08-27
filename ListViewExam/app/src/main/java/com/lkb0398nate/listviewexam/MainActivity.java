@@ -1,37 +1,52 @@
+
 package com.lkb0398nate.listviewexam;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private List<String> mData;
+    private ArrayAdapter<String> mAdapter;
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initData();
+        initAdapter();
+        initListView();
+
+        // Data 준비
+
+        // 2. Adapter 준비
+
+        // 3. ListView에 Adapter 장착
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    private void initData() {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        mData = new ArrayList<>();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        for (int i = 0; i <= 100; i++) {
+            mData.add("item " + i);
         }
+    }
 
-        return super.onOptionsItemSelected(item);
+    private void initAdapter() {
+        mAdapter = new ArrayAdapter<String>(getApplicationContext(),
+                android.R.layout.simple_list_item_1, mData);
+    }
+    private void initListView() {
+        mListView = (ListView)findViewById(R.id.list_view);
+        mListView.setAdapter(mAdapter);
     }
 }
