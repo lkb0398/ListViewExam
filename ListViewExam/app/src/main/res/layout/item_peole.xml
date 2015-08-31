@@ -22,6 +22,7 @@
 
 
             <TextView
+                android:id="@+id/inter_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/mic_view"
@@ -30,6 +31,7 @@
                 android:textColor="" />
 
             <TextView
+                android:id="@+id/answer_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="아이크즈 이에서 쁘에즈어 ㅇㄹ머아ㅣㅇ라" />
