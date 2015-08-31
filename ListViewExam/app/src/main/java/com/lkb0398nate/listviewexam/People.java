@@ -2,7 +2,7 @@
 package com.lkb0398nate.listviewexam;
 
 /**
- * Created by kb on 2015-08-31.
+ * Created by kb on 2015-08-31. 사람클래스
  */
 public class People {
     private String name;
