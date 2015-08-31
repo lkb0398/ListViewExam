@@ -27,8 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/mic_view"
                 android:text="인터뷰"
-                android:textSize="30dp"
-                android:textColor="" />
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/answer_text"

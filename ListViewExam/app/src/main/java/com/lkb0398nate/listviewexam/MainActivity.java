@@ -4,17 +4,14 @@ package com.lkb0398nate.listviewexam;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Map<String, String>> mData;
-    private SimpleAdapter mAdapter;
+    private List<People> mData;
+    private CustomAdapter mAdapter;
     private ListView mListView;
 
     @Override
@@ -35,24 +32,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-
         mData = new ArrayList<>();
 
+        mData.add(new People(R.drawable.mic, "주둥이", "010-4046-0398"));
+        mData.add(new People(R.drawable.taste, "혓바닥", "010-7171-8045"));
+
         for (int i = 0; i <= 100; i++) {
-            Map<String, String> data = new HashMap<>();
-            data.put("item", "Item" + i);
-            data.put("subitem", "subItem" + i);
-            mData.add(data);
+            mData.add(new People(R.mipmap.ic_launcher, "아무개" + i, "번호없음"));
         }
     }
 
     private void initAdapter() {
-        mAdapter = new SimpleAdapter(getApplicationContext(), mData,
-                android.R.layout.simple_list_item_2, new String[] {
-                        "item", "subitem"
-                }, new int[] {
-                        android.R.id.text1, android.R.id.text2
-                });
+        mAdapter = new CustomAdapter(getApplicationContext(), mData);
     }
 
     private void initListView() {
